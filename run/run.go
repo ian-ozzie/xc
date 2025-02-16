@@ -139,9 +139,6 @@ func (r *Runner) runWithPadding(ctx context.Context, name string, inputs []strin
 	env = append(env, inp...)
 
 	var prefix string
-	if !task.Interactive {
-		prefix = fmt.Sprintf("%*s", padding, strings.TrimSpace(task.Name))
-	}
 	return r.scriptRunner.Execute(ctx, task.Script, env, inputs, r.getExecutionPath(task), prefix)
 }
 
